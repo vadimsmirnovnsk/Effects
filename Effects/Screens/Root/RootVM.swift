@@ -3,8 +3,7 @@ import AudioKit
 
 final class RootVM: BaseViewControllerVM {
 
-	let oscillator = AKOscillator()
-	let oscillator2 = AKOscillator()
+	let micVM = MicVM()
 
 	override init() {
 		super.init()
@@ -13,27 +12,15 @@ final class RootVM: BaseViewControllerVM {
 	override func load() {
 		super.load()
 
-		AudioKit.output = AKMixer(self.oscillator, self.oscillator2)
-		try? AudioKit.start()
-	}
+		self.micVM.launch()
 
-	func didTapB1() {
-		if self.oscillator.isPlaying {
-			self.oscillator.stop()
-		} else {
-			self.oscillator.amplitude = random(in: 0.5...1)
-			self.oscillator.frequency = random(in: 220...880)
-			self.oscillator.start()
-		}
-	}
+		AKSettings.audioInputEnabled = true
+		AudioKit.output = self.micVM.micOutput
 
-	func didTapB2() {
-		if self.oscillator2.isPlaying {
-			self.oscillator2.stop()
-		} else {
-			self.oscillator2.amplitude = random(in: 0.5...1)
-			self.oscillator2.frequency = random(in: 220...880)
-			self.oscillator2.start()
+		do {
+			try AudioKit.start()
+		} catch {
+			AKLog("AudioKit did not start!")
 		}
 	}
 

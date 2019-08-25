@@ -4,33 +4,86 @@ import AudioKitUI
 
 final class RootVC: BaseVC<RootVM> {
 
+	override var navigationBarStyle: NavigationBarStyle? { return .semilightTansparent }
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+
 	private let scroll = UIScrollView()
+	private let micView: MicView
+
+	override init(viewModel: RootVM) {
+		self.micView = MicView(viewModel: viewModel.micVM)
+
+		super.init(viewModel: viewModel)
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		self.view.backgroundColor = .Dark
+
+		self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Source", style: .plain, target: self, action: #selector(didTapInputDevicesButton))
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Output", style: .plain, target: self, action: #selector(didTapOutputDevicesButton))
 
 		self.view.addSubview(self.scroll) { make in
 			make.edges.equalToSuperview()
 		}
 
-		let b1 = BlockButton { [weak self] _ in self?.viewModel.didTapB1() }
-		let b2 = BlockButton { [weak self] _ in self?.viewModel.didTapB2() }
-
-		b1.setTitleColor(.blue, for: .normal)
-		b2.setTitleColor(.blue, for: .normal)
-		b1.setTitle("Oscillator 1", for: .normal)
-		b2.setTitle("Oscillator 2", for: .normal)
-
-		self.scroll.addSubview(b1) { make in
-			make.left.right.equalTo(self.view)
+		self.scroll.addSubview(self.micView) { make in
+			make.left.right.equalTo(self.view).inset(16)
 			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
-			make.height.equalTo(60)
 		}
+	}
 
-		self.scroll.addSubview(b2) { make in
-			make.left.right.equalTo(self.view)
-			make.top.equalTo(b1.snp.bottom).offset(24)
-			make.height.equalTo(60)
+	@objc func didTapInputDevicesButton(_ sender: UIBarButtonItem) {
+		let vc = self.deviceVC(with: .input)
+		self.present(vc, animated: true, completion: nil)
+	}
+
+	@objc func didTapOutputDevicesButton(_ sender: UIBarButtonItem) {
+		let vc = self.deviceVC(with: .output)
+		self.present(vc, animated: true, completion: nil)
+	}
+
+	private func deviceVC(with style: DeviceTableViewController.Style) -> UIViewController {
+		let inputDevices = DeviceTableViewController(style: style)
+		inputDevices.settingsDelegate = self
+		let navigationController = UINavigationController(rootViewController: inputDevices)
+		navigationController.preferredContentSize = CGSize(width: 300, height: 300)
+		navigationController.modalPresentationStyle = .popover
+		navigationController.popoverPresentationController!.delegate = self
+		return navigationController
+	}
+
+}
+
+extension RootVC: UIPopoverPresentationControllerDelegate {
+
+	func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+		return .none
+	}
+
+	func prepareForPopoverPresentation(_ popoverPresentationController: UIPopoverPresentationController) {
+		popoverPresentationController.permittedArrowDirections = .up
+		popoverPresentationController.barButtonItem = navigationItem.rightBarButtonItem
+	}
+}
+
+extension RootVC: DeviceDelegate {
+
+	func didSelectOutputDevice(_ device: AKDevice) {
+		do {
+			try AudioKit.setOutputDevice(device)
+		} catch {
+			AKLog("Error setting input device")
+		}
+	}
+
+
+	func didSelectInputDevice(_ device: AKDevice) {
+		do {
+			try self.viewModel.micVM.mic?.setDevice(device)
+		} catch {
+			AKLog("Error setting input device")
 		}
 	}
 

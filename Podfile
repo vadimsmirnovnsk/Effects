@@ -8,7 +8,7 @@ def base;          pod 'VNBase'						end
 
 target 'Effects' do
   base
-	pod 'AudioKit', '~> 4.0'
+  pod 'AudioKit', '~> 4.0'
 end
 
 # Change default pods builds folder to avoid conflict with v4ios builds folder
