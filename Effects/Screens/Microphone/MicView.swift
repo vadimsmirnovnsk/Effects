@@ -1,6 +1,3 @@
-import VNBase
-import AudioKitUI
-
 final class MicView: BaseView<MicVM> {
 
 	private let stack = UIStackView.stack()
@@ -10,6 +7,7 @@ final class MicView: BaseView<MicVM> {
 	private let noteNameWithSharpsLabel = TitledLabel(title: "Note #")
 	private let noteNameWithFlatsLabel = TitledLabel(title: "Note flats")
 	private let audioInputPlot: EZAudioPlot
+	private let volume: AKSlider
 
 	required init(viewModel: MicVM) {
 		self.audioInputPlot = EZAudioPlot(frame: .zero)
@@ -19,6 +17,11 @@ final class MicView: BaseView<MicVM> {
 		plot.shouldMirror = true
 		plot.color = .backgroundBlue
 		plot.gain = 5
+
+		self.volume = AKSlider(property: "Mic Volume", value: 1) { value in
+			viewModel.micOutput.gain = value
+		}
+		self.volume.color = .backgroundBlue
 
 		super.init()
 
@@ -36,12 +39,19 @@ final class MicView: BaseView<MicVM> {
 			self.amplitudeLabel,
 			self.noteNameWithSharpsLabel,
 			self.noteNameWithFlatsLabel,
-			self.audioInputPlot
+			self.audioInputPlot,
+			self.volume,
+			UIView.space(12),
+			UIView.pixelSeparator()
 		])
 
 		plot.backgroundColor = .Dark
 		self.audioInputPlot.addSubview(plot) { make in
 			make.edges.equalToSuperview()
+		}
+
+		self.volume.snp.makeConstraints { make in
+			make.height.equalTo(44)
 		}
 	}
 

@@ -22,6 +22,10 @@
 		303149562312C271000BD412 /* InputDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303149552312C26D000BD412 /* InputDeviceTableViewController.swift */; };
 		303149582312C3ED000BD412 /* TitledLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303149572312C3ED000BD412 /* TitledLabel.swift */; };
 		3031495A2312C564000BD412 /* NavigationBarStyle+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303149592312C564000BD412 /* NavigationBarStyle+Custom.swift */; };
+		3031495D231428BA000BD412 /* OutputVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031495C231428BA000BD412 /* OutputVM.swift */; };
+		3031495F231428C1000BD412 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031495E231428C1000BD412 /* OutputView.swift */; };
+		3031496123142B24000BD412 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031496023142B24000BD412 /* UIView.swift */; };
+		3031496323142C1E000BD412 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031496223142C1E000BD412 /* UINavigationController.swift */; };
 		85FD6BF61B9F9A0F7F948407 /* libPods-Effects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2AD7E0A286F3A03029793A /* libPods-Effects.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +48,10 @@
 		303149552312C26D000BD412 /* InputDeviceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDeviceTableViewController.swift; sourceTree = "<group>"; };
 		303149572312C3ED000BD412 /* TitledLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledLabel.swift; sourceTree = "<group>"; };
 		303149592312C564000BD412 /* NavigationBarStyle+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBarStyle+Custom.swift"; sourceTree = "<group>"; };
+		3031495C231428BA000BD412 /* OutputVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputVM.swift; sourceTree = "<group>"; };
+		3031495E231428C1000BD412 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		3031496023142B24000BD412 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		3031496223142C1E000BD412 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
 		4CCD00A6ADB7AA74C8AAAFBF /* Pods-Effects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.debug.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2AD7E0A286F3A03029793A /* libPods-Effects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49327F6B547B487CD11091 /* Pods-Effects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.release.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.release.xcconfig"; sourceTree = "<group>"; };
@@ -105,6 +113,7 @@
 		3031493F2312A2FB000BD412 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3031495B231428A4000BD412 /* Output */,
 				303149542312C267000BD412 /* Input */,
 				303149462312A79F000BD412 /* Microphone */,
 				303149402312A302000BD412 /* Root */,
@@ -134,11 +143,13 @@
 		3031494B2312BEB7000BD412 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3031496023142B24000BD412 /* UIView.swift */,
 				303149592312C564000BD412 /* NavigationBarStyle+Custom.swift */,
 				303149502312BFF5000BD412 /* UIFont+CustomFonts.swift */,
 				303149522312C01A000BD412 /* UIColor+Custom.swift */,
 				3031494E2312BFD1000BD412 /* UILabel.swift */,
 				3031494C2312BEC3000BD412 /* UIStackView.swift */,
+				3031496223142C1E000BD412 /* UINavigationController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -149,6 +160,15 @@
 				303149552312C26D000BD412 /* InputDeviceTableViewController.swift */,
 			);
 			path = Input;
+			sourceTree = "<group>";
+		};
+		3031495B231428A4000BD412 /* Output */ = {
+			isa = PBXGroup;
+			children = (
+				3031495C231428BA000BD412 /* OutputVM.swift */,
+				3031495E231428C1000BD412 /* OutputView.swift */,
+			);
+			path = Output;
 			sourceTree = "<group>";
 		};
 		AF13036A6D5989CFB8FFFFB8 /* Frameworks */ = {
@@ -264,11 +284,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3031496123142B24000BD412 /* UIView.swift in Sources */,
 				3031494A2312ABCC000BD412 /* MicView.swift in Sources */,
 				303149482312ABC5000BD412 /* MicVM.swift in Sources */,
 				303149562312C271000BD412 /* InputDeviceTableViewController.swift in Sources */,
 				3031495A2312C564000BD412 /* NavigationBarStyle+Custom.swift in Sources */,
 				303149532312C01A000BD412 /* UIColor+Custom.swift in Sources */,
+				3031495F231428C1000BD412 /* OutputView.swift in Sources */,
+				3031495D231428BA000BD412 /* OutputVM.swift in Sources */,
 				3031494D2312BEFF000BD412 /* UIStackView.swift in Sources */,
 				3031494F2312BFD1000BD412 /* UILabel.swift in Sources */,
 				3031493E2312A23E000BD412 /* Container.swift in Sources */,
@@ -276,6 +299,7 @@
 				303149442312A30E000BD412 /* RootVC.swift in Sources */,
 				303149422312A309000BD412 /* RootVM.swift in Sources */,
 				303149582312C3ED000BD412 /* TitledLabel.swift in Sources */,
+				3031496323142C1E000BD412 /* UINavigationController.swift in Sources */,
 				3031492B2312A0A5000BD412 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,3 @@
-import VNBase
-import AudioKit
-
 final class MicVM: BaseVM {
 
 	let mic = AKMicrophone()
