@@ -9,11 +9,14 @@ final class RootVC: BaseVC<RootVM> {
 
 	private let scroll = UIScrollView()
 	private let stack = UIStackView.stack()
+
 	private let micView: MicView
+	private let lowShelf: LowShelfEqualizerView
 	private let masterView: OutputView
 
 	override init(viewModel: RootVM) {
 		self.micView = MicView(viewModel: viewModel.micVM)
+		self.lowShelf = LowShelfEqualizerView(viewModel: viewModel.lowShelf)
 		self.masterView = OutputView(viewModel: viewModel.outputVM)
 
 		super.init(viewModel: viewModel)
@@ -39,6 +42,7 @@ final class RootVC: BaseVC<RootVM> {
 
 		self.stack.addArrangedSubviews([
 			self.micView,
+			self.lowShelf,
 			self.masterView
 		])
 	}

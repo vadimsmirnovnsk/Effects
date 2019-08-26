@@ -4,10 +4,13 @@ import AudioKit
 final class RootVM: BaseViewControllerVM {
 
 	let micVM = MicVM()
+
+	let lowShelf: LowShelfEqualizerVM
 	let outputVM: OutputVM
 
 	override init() {
-		self.outputVM = OutputVM(input: self.micVM.output)
+		self.lowShelf = LowShelfEqualizerVM(input: self.micVM.output)
+		self.outputVM = OutputVM(input: self.lowShelf.output)
 
 		super.init()
 	}
