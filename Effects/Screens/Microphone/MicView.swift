@@ -1,7 +1,5 @@
-final class MicView: BaseView<MicVM> {
+final class MicView: BaseNodeView<MicVM> {
 
-	private let stack = UIStackView.stack()
-	private let title = UILabel()
 	private let frequencyLabel = TitledLabel(title: "Frequency")
 	private let amplitudeLabel = TitledLabel(title: "Amplitude")
 	private let noteNameWithSharpsLabel = TitledLabel(title: "Note #")
@@ -23,26 +21,17 @@ final class MicView: BaseView<MicVM> {
 		}
 		self.volume.color = .backgroundBlue
 
-		super.init()
+		super.init(viewModel: viewModel)
 
-		self.viewModel = viewModel
-		self.viewModel?.updateBlock = { [weak self] in self?.updateUI() }
-
-		self.addSubview(self.stack) { make in make.edges.equalToSuperview() }
 		self.audioInputPlot.snp.makeConstraints { make in make.height.equalTo(100) }
 
-		self.title.apply(.Regular24White, text: "Mic Analysis")
-
 		self.stack.addArrangedSubviews([
-			self.title,
 			self.frequencyLabel,
 			self.amplitudeLabel,
 			self.noteNameWithSharpsLabel,
 			self.noteNameWithFlatsLabel,
 			self.audioInputPlot,
-			self.volume,
-			UIView.space(12),
-			UIView.pixelSeparator()
+			self.volume
 		])
 
 		plot.backgroundColor = .Dark
@@ -55,7 +44,7 @@ final class MicView: BaseView<MicVM> {
 		}
 	}
 
-	func updateUI() {
+	override func updateUI() {
 		guard let vm = self.viewModel else { return }
 
 		if vm.tracker.amplitude > 0.1 {

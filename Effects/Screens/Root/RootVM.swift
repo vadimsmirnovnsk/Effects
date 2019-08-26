@@ -4,18 +4,19 @@ import AudioKit
 final class RootVM: BaseViewControllerVM {
 
 	let micVM = MicVM()
+	let outputVM: OutputVM
 
 	override init() {
+		self.outputVM = OutputVM(input: self.micVM.output)
+
 		super.init()
 	}
 
 	override func load() {
 		super.load()
 
-		self.micVM.launch()
-
 		AKSettings.audioInputEnabled = true
-		AudioKit.output = self.micVM.micOutput
+		AudioKit.output = self.outputVM.output
 
 		do {
 			try AudioKit.start()

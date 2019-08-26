@@ -26,6 +26,8 @@
 		3031495F231428C1000BD412 /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031495E231428C1000BD412 /* OutputView.swift */; };
 		3031496123142B24000BD412 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031496023142B24000BD412 /* UIView.swift */; };
 		3031496323142C1E000BD412 /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031496223142C1E000BD412 /* UINavigationController.swift */; };
+		303149662314318D000BD412 /* BaseNodeVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303149652314318D000BD412 /* BaseNodeVM.swift */; };
+		3031496823143194000BD412 /* BaseNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031496723143194000BD412 /* BaseNodeView.swift */; };
 		85FD6BF61B9F9A0F7F948407 /* libPods-Effects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2AD7E0A286F3A03029793A /* libPods-Effects.a */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,8 @@
 		3031495E231428C1000BD412 /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		3031496023142B24000BD412 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		3031496223142C1E000BD412 /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		303149652314318D000BD412 /* BaseNodeVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNodeVM.swift; sourceTree = "<group>"; };
+		3031496723143194000BD412 /* BaseNodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNodeView.swift; sourceTree = "<group>"; };
 		4CCD00A6ADB7AA74C8AAAFBF /* Pods-Effects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.debug.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2AD7E0A286F3A03029793A /* libPods-Effects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49327F6B547B487CD11091 /* Pods-Effects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.release.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.release.xcconfig"; sourceTree = "<group>"; };
@@ -113,6 +117,7 @@
 		3031493F2312A2FB000BD412 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				303149642314317B000BD412 /* BaseNode */,
 				3031495B231428A4000BD412 /* Output */,
 				303149542312C267000BD412 /* Input */,
 				303149462312A79F000BD412 /* Microphone */,
@@ -135,7 +140,6 @@
 			children = (
 				303149472312ABC5000BD412 /* MicVM.swift */,
 				303149492312ABCC000BD412 /* MicView.swift */,
-				303149572312C3ED000BD412 /* TitledLabel.swift */,
 			);
 			path = Microphone;
 			sourceTree = "<group>";
@@ -143,6 +147,7 @@
 		3031494B2312BEB7000BD412 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				303149572312C3ED000BD412 /* TitledLabel.swift */,
 				3031496023142B24000BD412 /* UIView.swift */,
 				303149592312C564000BD412 /* NavigationBarStyle+Custom.swift */,
 				303149502312BFF5000BD412 /* UIFont+CustomFonts.swift */,
@@ -169,6 +174,15 @@
 				3031495E231428C1000BD412 /* OutputView.swift */,
 			);
 			path = Output;
+			sourceTree = "<group>";
+		};
+		303149642314317B000BD412 /* BaseNode */ = {
+			isa = PBXGroup;
+			children = (
+				303149652314318D000BD412 /* BaseNodeVM.swift */,
+				3031496723143194000BD412 /* BaseNodeView.swift */,
+			);
+			path = BaseNode;
 			sourceTree = "<group>";
 		};
 		AF13036A6D5989CFB8FFFFB8 /* Frameworks */ = {
@@ -284,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3031496823143194000BD412 /* BaseNodeView.swift in Sources */,
 				3031496123142B24000BD412 /* UIView.swift in Sources */,
 				3031494A2312ABCC000BD412 /* MicView.swift in Sources */,
 				303149482312ABC5000BD412 /* MicVM.swift in Sources */,
@@ -291,6 +306,7 @@
 				3031495A2312C564000BD412 /* NavigationBarStyle+Custom.swift in Sources */,
 				303149532312C01A000BD412 /* UIColor+Custom.swift in Sources */,
 				3031495F231428C1000BD412 /* OutputView.swift in Sources */,
+				303149662314318D000BD412 /* BaseNodeVM.swift in Sources */,
 				3031495D231428BA000BD412 /* OutputVM.swift in Sources */,
 				3031494D2312BEFF000BD412 /* UIStackView.swift in Sources */,
 				3031494F2312BFD1000BD412 /* UILabel.swift in Sources */,

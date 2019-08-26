@@ -8,10 +8,13 @@ final class RootVC: BaseVC<RootVM> {
 	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
 	private let scroll = UIScrollView()
+	private let stack = UIStackView.stack()
 	private let micView: MicView
+	private let masterView: OutputView
 
 	override init(viewModel: RootVM) {
 		self.micView = MicView(viewModel: viewModel.micVM)
+		self.masterView = OutputView(viewModel: viewModel.outputVM)
 
 		super.init(viewModel: viewModel)
 	}
@@ -25,13 +28,19 @@ final class RootVC: BaseVC<RootVM> {
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Output", style: .plain, target: self, action: #selector(didTapOutputDevicesButton))
 
 		self.view.addSubview(self.scroll) { make in
-			make.edges.equalToSuperview()
+			make.left.right.equalToSuperview()
+			make.top.bottom.equalTo(self.view.safeAreaLayoutGuide)
 		}
 
-		self.scroll.addSubview(self.micView) { make in
+		self.scroll.addSubview(self.stack) { make in
 			make.left.right.equalTo(self.view).inset(16)
-			make.top.equalTo(self.view.safeAreaLayoutGuide.snp.top)
+			make.top.bottom.equalToSuperview()
 		}
+
+		self.stack.addArrangedSubviews([
+			self.micView,
+			self.masterView
+		])
 	}
 
 	@objc func didTapInputDevicesButton(_ sender: UIBarButtonItem) {

@@ -1,9 +1,11 @@
-//
-//  OutputVM.swift
-//  Effects
-//
-//  Created by Смирнов Вадим Павлович on 26/08/2019.
-//  Copyright © 2019 2GIS. All rights reserved.
-//
+final class OutputVM: BaseNodeVM {
 
-import Foundation
+	let booster: AKBooster
+
+	init(input: AKNode) {
+		self.booster = AKBooster(input, gain: 1)
+
+		super.init(title: "Master Volume", input: input, output: self.booster)
+	}
+
+}

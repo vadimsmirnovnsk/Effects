@@ -1,9 +1,20 @@
-//
-//  OutputView.swift
-//  Effects
-//
-//  Created by Смирнов Вадим Павлович on 26/08/2019.
-//  Copyright © 2019 2GIS. All rights reserved.
-//
+final class OutputView: BaseNodeView<OutputVM> {
 
-import Foundation
+	private let volume: AKSlider
+
+	required init(viewModel: OutputVM) {
+		self.volume = AKSlider(property: "Master", value: 1) { value in
+			viewModel.booster.gain = value
+		}
+		self.volume.color = .RadicalRed
+
+		super.init(viewModel: viewModel)
+
+		self.stack.addArrangedSubview(self.volume)
+
+		self.volume.snp.makeConstraints { make in
+			make.height.equalTo(44)
+		}
+	}
+
+}
