@@ -9,8 +9,8 @@ final class EqualizerView: BaseNodeView<EqualizerVM> {
 			let property = String(format: format, value)
 			return EffectSlider(property: property,
 								value: band.gain,
-								range: -40 ... 40,
-								format: "%0.1f dB") { band.gain = $0 }
+								range: -1 ... 1,
+								format: "%0.1f") { band.gain = 1 + $0 }
 		}
 
 		super.init(viewModel: viewModel)
