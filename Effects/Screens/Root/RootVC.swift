@@ -12,11 +12,13 @@ final class RootVC: BaseVC<RootVM> {
 
 	private let micView: MicView
 	private let lowShelf: LowShelfEqualizerView
+	private let equalizerView: EqualizerView
 	private let masterView: OutputView
 
 	override init(viewModel: RootVM) {
 		self.micView = MicView(viewModel: viewModel.micVM)
 		self.lowShelf = LowShelfEqualizerView(viewModel: viewModel.lowShelf)
+		self.equalizerView = EqualizerView(viewModel: viewModel.equalizer)
 		self.masterView = OutputView(viewModel: viewModel.outputVM)
 
 		super.init(viewModel: viewModel)
@@ -43,7 +45,8 @@ final class RootVC: BaseVC<RootVM> {
 		self.stack.addArrangedSubviews([
 			self.micView,
 			self.lowShelf,
-			self.masterView
+			self.equalizerView,
+			self.masterView,
 		])
 	}
 

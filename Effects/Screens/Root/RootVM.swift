@@ -6,11 +6,14 @@ final class RootVM: BaseViewControllerVM {
 	let micVM = MicVM()
 
 	let lowShelf: LowShelfEqualizerVM
+	let equalizer: EqualizerVM
 	let outputVM: OutputVM
 
 	override init() {
 		self.lowShelf = LowShelfEqualizerVM(input: self.micVM.output)
-		self.outputVM = OutputVM(input: self.lowShelf.output)
+		self.equalizer = EqualizerVM(input: self.lowShelf.output,
+									 equalizer: EqualizerBand.thirdOctaveEqualizer)
+		self.outputVM = OutputVM(input: self.equalizer.output)
 
 		super.init()
 	}

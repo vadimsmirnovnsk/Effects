@@ -16,7 +16,7 @@ final class MicView: BaseNodeView<MicVM> {
 		plot.color = .backgroundBlue
 		plot.gain = 5
 
-		self.volume = AKSlider(property: "Mic Volume", value: 1) { value in
+		self.volume = EffectSlider(property: "Mic Volume", value: 1) { value in
 			viewModel.micOutput.gain = value
 		}
 		self.volume.color = .backgroundBlue
@@ -37,10 +37,6 @@ final class MicView: BaseNodeView<MicVM> {
 		plot.backgroundColor = .Dark
 		self.audioInputPlot.addSubview(plot) { make in
 			make.edges.equalToSuperview()
-		}
-
-		self.volume.snp.makeConstraints { make in
-			make.height.equalTo(44)
 		}
 	}
 

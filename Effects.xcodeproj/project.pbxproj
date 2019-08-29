@@ -30,6 +30,10 @@
 		3031496823143194000BD412 /* BaseNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031496723143194000BD412 /* BaseNodeView.swift */; };
 		3031496B231470D6000BD412 /* LowShelfEqualizerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031496A231470D6000BD412 /* LowShelfEqualizerVM.swift */; };
 		3031496D231470E4000BD412 /* LowShelfEqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3031496C231470E4000BD412 /* LowShelfEqualizerView.swift */; };
+		30391AC92318194400EE2D7C /* EqualizerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AC82318194400EE2D7C /* EqualizerVM.swift */; };
+		30391ACB2318195000EE2D7C /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ACA2318195000EE2D7C /* EqualizerView.swift */; };
+		30391ACD23181FC800EE2D7C /* EqualizerBand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ACC23181FC800EE2D7C /* EqualizerBand.swift */; };
+		30391ACF2318268100EE2D7C /* EffectSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ACE2318268100EE2D7C /* EffectSlider.swift */; };
 		85FD6BF61B9F9A0F7F948407 /* libPods-Effects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2AD7E0A286F3A03029793A /* libPods-Effects.a */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +64,10 @@
 		3031496723143194000BD412 /* BaseNodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNodeView.swift; sourceTree = "<group>"; };
 		3031496A231470D6000BD412 /* LowShelfEqualizerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowShelfEqualizerVM.swift; sourceTree = "<group>"; };
 		3031496C231470E4000BD412 /* LowShelfEqualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowShelfEqualizerView.swift; sourceTree = "<group>"; };
+		30391AC82318194400EE2D7C /* EqualizerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerVM.swift; sourceTree = "<group>"; };
+		30391ACA2318195000EE2D7C /* EqualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
+		30391ACC23181FC800EE2D7C /* EqualizerBand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerBand.swift; sourceTree = "<group>"; };
+		30391ACE2318268100EE2D7C /* EffectSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectSlider.swift; sourceTree = "<group>"; };
 		4CCD00A6ADB7AA74C8AAAFBF /* Pods-Effects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.debug.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2AD7E0A286F3A03029793A /* libPods-Effects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49327F6B547B487CD11091 /* Pods-Effects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.release.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,9 +129,10 @@
 		3031493F2312A2FB000BD412 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				30391AC72318192800EE2D7C /* Equalizer */,
 				303149642314317B000BD412 /* BaseNode */,
-				30314969231470B2000BD412 /* LowShelfEqualizer */,
-				3031495B231428A4000BD412 /* Output */,
+				30314969231470B2000BD412 /* LowShelfFilter */,
+				3031495B231428A4000BD412 /* Master */,
 				303149542312C267000BD412 /* Input */,
 				303149462312A79F000BD412 /* Microphone */,
 				303149402312A302000BD412 /* Root */,
@@ -160,6 +169,7 @@
 				3031494E2312BFD1000BD412 /* UILabel.swift */,
 				3031494C2312BEC3000BD412 /* UIStackView.swift */,
 				3031496223142C1E000BD412 /* UINavigationController.swift */,
+				30391ACE2318268100EE2D7C /* EffectSlider.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -172,13 +182,13 @@
 			path = Input;
 			sourceTree = "<group>";
 		};
-		3031495B231428A4000BD412 /* Output */ = {
+		3031495B231428A4000BD412 /* Master */ = {
 			isa = PBXGroup;
 			children = (
 				3031495C231428BA000BD412 /* OutputVM.swift */,
 				3031495E231428C1000BD412 /* OutputView.swift */,
 			);
-			path = Output;
+			path = Master;
 			sourceTree = "<group>";
 		};
 		303149642314317B000BD412 /* BaseNode */ = {
@@ -190,13 +200,23 @@
 			path = BaseNode;
 			sourceTree = "<group>";
 		};
-		30314969231470B2000BD412 /* LowShelfEqualizer */ = {
+		30314969231470B2000BD412 /* LowShelfFilter */ = {
 			isa = PBXGroup;
 			children = (
 				3031496A231470D6000BD412 /* LowShelfEqualizerVM.swift */,
 				3031496C231470E4000BD412 /* LowShelfEqualizerView.swift */,
 			);
-			path = LowShelfEqualizer;
+			path = LowShelfFilter;
+			sourceTree = "<group>";
+		};
+		30391AC72318192800EE2D7C /* Equalizer */ = {
+			isa = PBXGroup;
+			children = (
+				30391AC82318194400EE2D7C /* EqualizerVM.swift */,
+				30391ACA2318195000EE2D7C /* EqualizerView.swift */,
+				30391ACC23181FC800EE2D7C /* EqualizerBand.swift */,
+			);
+			path = Equalizer;
 			sourceTree = "<group>";
 		};
 		AF13036A6D5989CFB8FFFFB8 /* Frameworks */ = {
@@ -313,14 +333,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				3031496823143194000BD412 /* BaseNodeView.swift in Sources */,
+				30391AC92318194400EE2D7C /* EqualizerVM.swift in Sources */,
 				3031496B231470D6000BD412 /* LowShelfEqualizerVM.swift in Sources */,
+				30391ACB2318195000EE2D7C /* EqualizerView.swift in Sources */,
 				3031496123142B24000BD412 /* UIView.swift in Sources */,
+				30391ACD23181FC800EE2D7C /* EqualizerBand.swift in Sources */,
 				3031494A2312ABCC000BD412 /* MicView.swift in Sources */,
 				303149482312ABC5000BD412 /* MicVM.swift in Sources */,
 				303149562312C271000BD412 /* InputDeviceTableViewController.swift in Sources */,
 				3031495A2312C564000BD412 /* NavigationBarStyle+Custom.swift in Sources */,
 				303149532312C01A000BD412 /* UIColor+Custom.swift in Sources */,
 				3031495F231428C1000BD412 /* OutputView.swift in Sources */,
+				30391ACF2318268100EE2D7C /* EffectSlider.swift in Sources */,
 				303149662314318D000BD412 /* BaseNodeVM.swift in Sources */,
 				3031496D231470E4000BD412 /* LowShelfEqualizerView.swift in Sources */,
 				3031495D231428BA000BD412 /* OutputVM.swift in Sources */,
