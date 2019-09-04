@@ -6,6 +6,8 @@ final class DynamicProcessorVM: BaseNodeVM {
 		self.processor = AKDynamicsProcessor(input)
 
 		super.init(title: "Dynamics Processor", input: input, output: self.processor)
+
+		self.nodes = [self.processor]
 	}
 
 }

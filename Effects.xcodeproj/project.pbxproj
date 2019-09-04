@@ -38,6 +38,8 @@
 		30391AD8231FF2DF00EE2D7C /* CompressorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AD7231FF2DF00EE2D7C /* CompressorView.swift */; };
 		30391ADB231FF5FB00EE2D7C /* DynamicProcessorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ADA231FF5FB00EE2D7C /* DynamicProcessorVM.swift */; };
 		30391ADD231FF60000EE2D7C /* DynamicProcessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ADC231FF60000EE2D7C /* DynamicProcessorView.swift */; };
+		30391ADF231FF8E200EE2D7C /* TitledSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ADE231FF8E200EE2D7C /* TitledSwitch.swift */; };
+		30391AE1231FF95D00EE2D7C /* BlockSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AE0231FF95D00EE2D7C /* BlockSwitch.swift */; };
 		85FD6BF61B9F9A0F7F948407 /* libPods-Effects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2AD7E0A286F3A03029793A /* libPods-Effects.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		30391AD7231FF2DF00EE2D7C /* CompressorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressorView.swift; sourceTree = "<group>"; };
 		30391ADA231FF5FB00EE2D7C /* DynamicProcessorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProcessorVM.swift; sourceTree = "<group>"; };
 		30391ADC231FF60000EE2D7C /* DynamicProcessorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProcessorView.swift; sourceTree = "<group>"; };
+		30391ADE231FF8E200EE2D7C /* TitledSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledSwitch.swift; sourceTree = "<group>"; };
+		30391AE0231FF95D00EE2D7C /* BlockSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockSwitch.swift; sourceTree = "<group>"; };
 		4CCD00A6ADB7AA74C8AAAFBF /* Pods-Effects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.debug.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2AD7E0A286F3A03029793A /* libPods-Effects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49327F6B547B487CD11091 /* Pods-Effects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.release.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.release.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 		3031494B2312BEB7000BD412 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				30391AE0231FF95D00EE2D7C /* BlockSwitch.swift */,
 				303149572312C3ED000BD412 /* TitledLabel.swift */,
 				3031496023142B24000BD412 /* UIView.swift */,
 				303149592312C564000BD412 /* NavigationBarStyle+Custom.swift */,
@@ -180,6 +185,7 @@
 				3031494C2312BEC3000BD412 /* UIStackView.swift */,
 				3031496223142C1E000BD412 /* UINavigationController.swift */,
 				30391ACE2318268100EE2D7C /* EffectSlider.swift */,
+				30391ADE231FF8E200EE2D7C /* TitledSwitch.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -367,6 +373,7 @@
 				30391AD8231FF2DF00EE2D7C /* CompressorView.swift in Sources */,
 				3031496B231470D6000BD412 /* LowShelfEqualizerVM.swift in Sources */,
 				30391ACB2318195000EE2D7C /* EqualizerView.swift in Sources */,
+				30391ADF231FF8E200EE2D7C /* TitledSwitch.swift in Sources */,
 				3031496123142B24000BD412 /* UIView.swift in Sources */,
 				30391ACD23181FC800EE2D7C /* EqualizerBand.swift in Sources */,
 				3031494A2312ABCC000BD412 /* MicView.swift in Sources */,
@@ -386,6 +393,7 @@
 				303149442312A30E000BD412 /* RootVC.swift in Sources */,
 				30391ADB231FF5FB00EE2D7C /* DynamicProcessorVM.swift in Sources */,
 				303149422312A309000BD412 /* RootVM.swift in Sources */,
+				30391AE1231FF95D00EE2D7C /* BlockSwitch.swift in Sources */,
 				303149582312C3ED000BD412 /* TitledLabel.swift in Sources */,
 				3031496323142C1E000BD412 /* UINavigationController.swift in Sources */,
 				3031492B2312A0A5000BD412 /* AppDelegate.swift in Sources */,

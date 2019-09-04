@@ -5,18 +5,18 @@ final class LowShelfEqualizerView: BaseNodeView<LowShelfEqualizerVM> {
 
 	required init(viewModel: LowShelfEqualizerVM) {
 		self.cutoff = EffectSlider(property: "Cutoff Frequency",
-								   value: viewModel.equalizer.cutoffFrequency,
+								   value: viewModel.filter.cutoffFrequency,
 								   range: 10 ... 200,
 								   format: "%0.1f Hz",
 								   color: .rightProgressGreen
-		) { viewModel.equalizer.cutoffFrequency = $0 }
+		) { viewModel.filter.cutoffFrequency = $0 }
 
 		self.gain = EffectSlider(property: "Gain",
-							 value: viewModel.equalizer.gain,
+							 value: viewModel.filter.gain,
 							 range: -40 ... 40,
 							 format: "%0.1f dB",
 							 color: .leftProgressGreen
-		) { viewModel.equalizer.gain = $0 }
+		) { viewModel.filter.gain = $0 }
 
 		super.init(viewModel: viewModel)
 

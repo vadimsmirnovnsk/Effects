@@ -15,6 +15,10 @@ final class MicVM: BaseNodeVM {
 		super.init(title: "Mic Analysis", input: nil, output: self.micOutput)
 
 		self.launch()
+
+		if let mic = self.mic {
+			self.nodes = [mic]
+		}
 	}
 
 	private func launch() {

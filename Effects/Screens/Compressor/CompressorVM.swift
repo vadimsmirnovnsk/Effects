@@ -6,6 +6,8 @@ final class CompressorVM: BaseNodeVM {
 		self.compressor = AKCompressor(input)
 
 		super.init(title: "Compressor", input: input, output: self.compressor)
+
+		self.nodes = [self.compressor]
 	}
 
 }
