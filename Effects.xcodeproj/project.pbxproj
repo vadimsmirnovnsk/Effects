@@ -40,6 +40,10 @@
 		30391ADD231FF60000EE2D7C /* DynamicProcessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ADC231FF60000EE2D7C /* DynamicProcessorView.swift */; };
 		30391ADF231FF8E200EE2D7C /* TitledSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ADE231FF8E200EE2D7C /* TitledSwitch.swift */; };
 		30391AE1231FF95D00EE2D7C /* BlockSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AE0231FF95D00EE2D7C /* BlockSwitch.swift */; };
+		30391AE42320019F00EE2D7C /* DelayVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AE32320019F00EE2D7C /* DelayVM.swift */; };
+		30391AE6232001A600EE2D7C /* DelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AE5232001A600EE2D7C /* DelayView.swift */; };
+		30391AE92320038400EE2D7C /* ReverbVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AE82320038400EE2D7C /* ReverbVM.swift */; };
+		30391AEB2320038B00EE2D7C /* ReverbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AEA2320038B00EE2D7C /* ReverbView.swift */; };
 		85FD6BF61B9F9A0F7F948407 /* libPods-Effects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2AD7E0A286F3A03029793A /* libPods-Effects.a */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +84,10 @@
 		30391ADC231FF60000EE2D7C /* DynamicProcessorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProcessorView.swift; sourceTree = "<group>"; };
 		30391ADE231FF8E200EE2D7C /* TitledSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledSwitch.swift; sourceTree = "<group>"; };
 		30391AE0231FF95D00EE2D7C /* BlockSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockSwitch.swift; sourceTree = "<group>"; };
+		30391AE32320019F00EE2D7C /* DelayVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayVM.swift; sourceTree = "<group>"; };
+		30391AE5232001A600EE2D7C /* DelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayView.swift; sourceTree = "<group>"; };
+		30391AE82320038400EE2D7C /* ReverbVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverbVM.swift; sourceTree = "<group>"; };
+		30391AEA2320038B00EE2D7C /* ReverbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverbView.swift; sourceTree = "<group>"; };
 		4CCD00A6ADB7AA74C8AAAFBF /* Pods-Effects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.debug.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2AD7E0A286F3A03029793A /* libPods-Effects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49327F6B547B487CD11091 /* Pods-Effects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.release.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +149,8 @@
 		3031493F2312A2FB000BD412 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				30391AE72320037800EE2D7C /* Reverb */,
+				30391AE22320019300EE2D7C /* Delay */,
 				30391AD9231FF5EA00EE2D7C /* Dynamic Processor */,
 				30391AD4231FF24300EE2D7C /* Compressor */,
 				30391AC72318192800EE2D7C /* Equalizer */,
@@ -251,6 +261,24 @@
 				30391ADC231FF60000EE2D7C /* DynamicProcessorView.swift */,
 			);
 			path = "Dynamic Processor";
+			sourceTree = "<group>";
+		};
+		30391AE22320019300EE2D7C /* Delay */ = {
+			isa = PBXGroup;
+			children = (
+				30391AE32320019F00EE2D7C /* DelayVM.swift */,
+				30391AE5232001A600EE2D7C /* DelayView.swift */,
+			);
+			path = Delay;
+			sourceTree = "<group>";
+		};
+		30391AE72320037800EE2D7C /* Reverb */ = {
+			isa = PBXGroup;
+			children = (
+				30391AE82320038400EE2D7C /* ReverbVM.swift */,
+				30391AEA2320038B00EE2D7C /* ReverbView.swift */,
+			);
+			path = Reverb;
 			sourceTree = "<group>";
 		};
 		AF13036A6D5989CFB8FFFFB8 /* Frameworks */ = {
@@ -369,6 +397,7 @@
 				3031496823143194000BD412 /* BaseNodeView.swift in Sources */,
 				30391ADD231FF60000EE2D7C /* DynamicProcessorView.swift in Sources */,
 				30391AD6231FF2D600EE2D7C /* CompressorVM.swift in Sources */,
+				30391AE6232001A600EE2D7C /* DelayView.swift in Sources */,
 				30391AC92318194400EE2D7C /* EqualizerVM.swift in Sources */,
 				30391AD8231FF2DF00EE2D7C /* CompressorView.swift in Sources */,
 				3031496B231470D6000BD412 /* LowShelfEqualizerVM.swift in Sources */,
@@ -384,14 +413,17 @@
 				3031495F231428C1000BD412 /* OutputView.swift in Sources */,
 				30391ACF2318268100EE2D7C /* EffectSlider.swift in Sources */,
 				303149662314318D000BD412 /* BaseNodeVM.swift in Sources */,
+				30391AEB2320038B00EE2D7C /* ReverbView.swift in Sources */,
 				3031496D231470E4000BD412 /* LowShelfEqualizerView.swift in Sources */,
 				3031495D231428BA000BD412 /* OutputVM.swift in Sources */,
 				3031494D2312BEFF000BD412 /* UIStackView.swift in Sources */,
 				3031494F2312BFD1000BD412 /* UILabel.swift in Sources */,
 				3031493E2312A23E000BD412 /* Container.swift in Sources */,
 				303149512312BFF5000BD412 /* UIFont+CustomFonts.swift in Sources */,
+				30391AE92320038400EE2D7C /* ReverbVM.swift in Sources */,
 				303149442312A30E000BD412 /* RootVC.swift in Sources */,
 				30391ADB231FF5FB00EE2D7C /* DynamicProcessorVM.swift in Sources */,
+				30391AE42320019F00EE2D7C /* DelayVM.swift in Sources */,
 				303149422312A309000BD412 /* RootVM.swift in Sources */,
 				30391AE1231FF95D00EE2D7C /* BlockSwitch.swift in Sources */,
 				303149582312C3ED000BD412 /* TitledLabel.swift in Sources */,

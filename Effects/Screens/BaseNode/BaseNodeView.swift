@@ -4,7 +4,7 @@ class BaseNodeView<T: BaseNodeVM> : BaseView<T> {
 	let title = UILabel()
 	let switchStack = UIStackView.stack(axis: .horizontal)
 	let enabledSwitch = TitledSwitch(title: "On/Off")
-	let collapseSwitch = TitledSwitch(title: "Collapse")
+	let expandSwitch = TitledSwitch(title: "Expand")
 
 	required init(viewModel: T) {
 		super.init()
@@ -37,24 +37,38 @@ class BaseNodeView<T: BaseNodeVM> : BaseView<T> {
 
 		self.switchStack.addArrangedSubviews([
 			self.enabledSwitch,
-			self.collapseSwitch
+			self.expandSwitch
 		])
 
-		self.collapseSwitch.switch.isOn = true
-		self.collapseSwitch.switch.onSwitch = { [weak self] on in
-			UIView.animate(withDuration: 0.3, animations: {
-				self?.stack.arrangedSubviews.forEach { $0.alpha = on ? 1 : 0 }
-			})
-			self?.stack.arrangedSubviews.forEach { $0.isHidden = !on }
+		self.expandSwitch.switch.onSwitch = { [weak self] on in
+			self?.updateHidden(expanded: on)
 		}
 
-		self.enabledSwitch.switch.isOn = true
 		self.enabledSwitch.switch.onSwitch = { [weak self] on in
 			self?.viewModel?.isEnabled = on
 		}
+
+		self.updateHidden(expanded: viewModel.isExpanded)
+	}
+
+	override func viewModelChanged() {
+		super.viewModelChanged()
+
+		guard let vm = self.viewModel else { return }
+
+		self.enabledSwitch.switch.isOn = vm.isEnabled
+		self.expandSwitch.switch.isOn = vm.isExpanded
+		self.updateHidden(expanded: vm.isExpanded)
 	}
 
 	open func updateUI() {
+	}
+
+	private func updateHidden(expanded: Bool) {
+		UIView.animate(withDuration: 0.3, animations: {
+			self.stack.arrangedSubviews.forEach { $0.alpha = expanded ? 1 : 0 }
+		})
+		self.stack.arrangedSubviews.forEach { $0.isHidden = !expanded }
 	}
 
 }

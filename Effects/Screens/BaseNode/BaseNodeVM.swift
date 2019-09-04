@@ -8,7 +8,16 @@ class BaseNodeVM: BaseVM {
 
 	var isEnabled: Bool = true {
 		didSet {
+			guard oldValue != self.isEnabled else { return }
+			self.viewModelChanged()
 			self.didToggle(enabled: self.isEnabled)
+		}
+	}
+
+	var isExpanded: Bool = true {
+		didSet {
+			guard oldValue != self.isExpanded else { return }
+			self.viewModelChanged()
 		}
 	}
 

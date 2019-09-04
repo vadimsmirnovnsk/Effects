@@ -10,7 +10,7 @@ final class EqualizerVM: BaseNodeVM {
 		for (index, bandModel) in equalizer.enumerated() {
 			let bandInput = index == 0 ? input : bands.last
 			let band = AKEqualizerFilter(bandInput, centerFrequency: bandModel.center,
-										 bandwidth: bandModel.bandwidth, gain: 0)
+										 bandwidth: bandModel.bandwidth, gain: 1)
 			bands.append(band)
 		}
 

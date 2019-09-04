@@ -8,7 +8,7 @@ final class EqualizerView: BaseNodeView<EqualizerVM> {
 			let value = band.centerFrequency >= 1000 ? band.centerFrequency / 1000 : band.centerFrequency
 			let property = String(format: format, value)
 			return EffectSlider(property: property,
-								value: band.gain,
+								value: band.gain - 1,
 								range: -1 ... 1,
 								format: "%0.1f") { band.gain = 1 + $0 }
 		}

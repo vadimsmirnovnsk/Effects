@@ -15,6 +15,8 @@ final class RootVC: BaseVC<RootVM> {
 	private let equalizerView: EqualizerView
 	private let compressorView: CompressorView
 	private let dynamicsProcessorView: DynamicProcessorView
+	private let delayView: DelayView
+	private let reverbView: ReverbView
 	private let masterView: OutputView
 
 	override init(viewModel: RootVM) {
@@ -23,6 +25,8 @@ final class RootVC: BaseVC<RootVM> {
 		self.equalizerView = EqualizerView(viewModel: viewModel.equalizer)
 		self.compressorView = CompressorView(viewModel: viewModel.compressor)
 		self.dynamicsProcessorView = DynamicProcessorView(viewModel: viewModel.dynamicsProcessor)
+		self.delayView = DelayView(viewModel: viewModel.delayVM)
+		self.reverbView = ReverbView(viewModel: viewModel.reverbVM)
 		self.masterView = OutputView(viewModel: viewModel.outputVM)
 
 		super.init(viewModel: viewModel)
@@ -52,6 +56,8 @@ final class RootVC: BaseVC<RootVM> {
 			self.equalizerView,
 			self.compressorView,
 			self.dynamicsProcessorView,
+			self.delayView,
+			self.reverbView,
 			self.masterView,
 		])
 	}
