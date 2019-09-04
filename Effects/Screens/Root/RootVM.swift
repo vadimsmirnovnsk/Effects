@@ -7,13 +7,19 @@ final class RootVM: BaseViewControllerVM {
 
 	let lowShelf: LowShelfEqualizerVM
 	let equalizer: EqualizerVM
+	let compressor: CompressorVM
+	let dynamicsProcessor: DynamicProcessorVM
 	let outputVM: OutputVM
 
 	override init() {
 		self.lowShelf = LowShelfEqualizerVM(input: self.micVM.output)
+
 		self.equalizer = EqualizerVM(input: self.lowShelf.output,
 									 equalizer: EqualizerBand.thirdOctaveEqualizer)
-		self.outputVM = OutputVM(input: self.equalizer.output)
+		self.compressor = CompressorVM(input: self.equalizer.output)
+		self.dynamicsProcessor = DynamicProcessorVM(input: self.compressor.output)
+
+		self.outputVM = OutputVM(input: self.dynamicsProcessor.output)
 
 		super.init()
 	}

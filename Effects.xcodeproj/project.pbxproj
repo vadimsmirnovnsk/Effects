@@ -34,6 +34,10 @@
 		30391ACB2318195000EE2D7C /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ACA2318195000EE2D7C /* EqualizerView.swift */; };
 		30391ACD23181FC800EE2D7C /* EqualizerBand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ACC23181FC800EE2D7C /* EqualizerBand.swift */; };
 		30391ACF2318268100EE2D7C /* EffectSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ACE2318268100EE2D7C /* EffectSlider.swift */; };
+		30391AD6231FF2D600EE2D7C /* CompressorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AD5231FF2D600EE2D7C /* CompressorVM.swift */; };
+		30391AD8231FF2DF00EE2D7C /* CompressorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AD7231FF2DF00EE2D7C /* CompressorView.swift */; };
+		30391ADB231FF5FB00EE2D7C /* DynamicProcessorVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ADA231FF5FB00EE2D7C /* DynamicProcessorVM.swift */; };
+		30391ADD231FF60000EE2D7C /* DynamicProcessorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391ADC231FF60000EE2D7C /* DynamicProcessorView.swift */; };
 		85FD6BF61B9F9A0F7F948407 /* libPods-Effects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2AD7E0A286F3A03029793A /* libPods-Effects.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +72,10 @@
 		30391ACA2318195000EE2D7C /* EqualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
 		30391ACC23181FC800EE2D7C /* EqualizerBand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerBand.swift; sourceTree = "<group>"; };
 		30391ACE2318268100EE2D7C /* EffectSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EffectSlider.swift; sourceTree = "<group>"; };
+		30391AD5231FF2D600EE2D7C /* CompressorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressorVM.swift; sourceTree = "<group>"; };
+		30391AD7231FF2DF00EE2D7C /* CompressorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressorView.swift; sourceTree = "<group>"; };
+		30391ADA231FF5FB00EE2D7C /* DynamicProcessorVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProcessorVM.swift; sourceTree = "<group>"; };
+		30391ADC231FF60000EE2D7C /* DynamicProcessorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicProcessorView.swift; sourceTree = "<group>"; };
 		4CCD00A6ADB7AA74C8AAAFBF /* Pods-Effects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.debug.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2AD7E0A286F3A03029793A /* libPods-Effects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49327F6B547B487CD11091 /* Pods-Effects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.release.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.release.xcconfig"; sourceTree = "<group>"; };
@@ -129,6 +137,8 @@
 		3031493F2312A2FB000BD412 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				30391AD9231FF5EA00EE2D7C /* Dynamic Processor */,
+				30391AD4231FF24300EE2D7C /* Compressor */,
 				30391AC72318192800EE2D7C /* Equalizer */,
 				303149642314317B000BD412 /* BaseNode */,
 				30314969231470B2000BD412 /* LowShelfFilter */,
@@ -217,6 +227,24 @@
 				30391ACC23181FC800EE2D7C /* EqualizerBand.swift */,
 			);
 			path = Equalizer;
+			sourceTree = "<group>";
+		};
+		30391AD4231FF24300EE2D7C /* Compressor */ = {
+			isa = PBXGroup;
+			children = (
+				30391AD5231FF2D600EE2D7C /* CompressorVM.swift */,
+				30391AD7231FF2DF00EE2D7C /* CompressorView.swift */,
+			);
+			path = Compressor;
+			sourceTree = "<group>";
+		};
+		30391AD9231FF5EA00EE2D7C /* Dynamic Processor */ = {
+			isa = PBXGroup;
+			children = (
+				30391ADA231FF5FB00EE2D7C /* DynamicProcessorVM.swift */,
+				30391ADC231FF60000EE2D7C /* DynamicProcessorView.swift */,
+			);
+			path = "Dynamic Processor";
 			sourceTree = "<group>";
 		};
 		AF13036A6D5989CFB8FFFFB8 /* Frameworks */ = {
@@ -333,7 +361,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3031496823143194000BD412 /* BaseNodeView.swift in Sources */,
+				30391ADD231FF60000EE2D7C /* DynamicProcessorView.swift in Sources */,
+				30391AD6231FF2D600EE2D7C /* CompressorVM.swift in Sources */,
 				30391AC92318194400EE2D7C /* EqualizerVM.swift in Sources */,
+				30391AD8231FF2DF00EE2D7C /* CompressorView.swift in Sources */,
 				3031496B231470D6000BD412 /* LowShelfEqualizerVM.swift in Sources */,
 				30391ACB2318195000EE2D7C /* EqualizerView.swift in Sources */,
 				3031496123142B24000BD412 /* UIView.swift in Sources */,
@@ -353,6 +384,7 @@
 				3031493E2312A23E000BD412 /* Container.swift in Sources */,
 				303149512312BFF5000BD412 /* UIFont+CustomFonts.swift in Sources */,
 				303149442312A30E000BD412 /* RootVC.swift in Sources */,
+				30391ADB231FF5FB00EE2D7C /* DynamicProcessorVM.swift in Sources */,
 				303149422312A309000BD412 /* RootVM.swift in Sources */,
 				303149582312C3ED000BD412 /* TitledLabel.swift in Sources */,
 				3031496323142C1E000BD412 /* UINavigationController.swift in Sources */,
