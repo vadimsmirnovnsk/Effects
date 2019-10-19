@@ -11,20 +11,22 @@ final class RootVC: BaseVC<RootVM> {
 	private let stack = UIStackView.stack()
 
 	private let micView: MicView
-	private let lowShelf: LowShelfEqualizerView
+//	private let lowShelf: LowShelfEqualizerView
 	private let equalizerView: EqualizerView
 	private let compressorView: CompressorView
-	private let dynamicsProcessorView: DynamicProcessorView
+//	private let dynamicsProcessorView: DynamicProcessorView
 	private let delayView: DelayView
 	private let reverbView: ReverbView
+	private let flangerView: FlangerView
 	private let masterView: OutputView
 
 	override init(viewModel: RootVM) {
 		self.micView = MicView(viewModel: viewModel.micVM)
-		self.lowShelf = LowShelfEqualizerView(viewModel: viewModel.lowShelf)
+//		self.lowShelf = LowShelfEqualizerView(viewModel: viewModel.lowShelf)
 		self.equalizerView = EqualizerView(viewModel: viewModel.equalizer)
 		self.compressorView = CompressorView(viewModel: viewModel.compressor)
-		self.dynamicsProcessorView = DynamicProcessorView(viewModel: viewModel.dynamicsProcessor)
+//		self.dynamicsProcessorView = DynamicProcessorView(viewModel: viewModel.dynamicsProcessor)
+		self.flangerView = FlangerView(viewModel: viewModel.flangerVM)
 		self.delayView = DelayView(viewModel: viewModel.delayVM)
 		self.reverbView = ReverbView(viewModel: viewModel.reverbVM)
 		self.masterView = OutputView(viewModel: viewModel.outputVM)
@@ -52,12 +54,13 @@ final class RootVC: BaseVC<RootVM> {
 
 		self.stack.addArrangedSubviews([
 			self.micView,
-			self.lowShelf,
+//			self.lowShelf,
 			self.equalizerView,
 			self.compressorView,
-			self.dynamicsProcessorView,
+//			self.dynamicsProcessorView,
 			self.delayView,
 			self.reverbView,
+			self.flangerView,
 			self.masterView,
 		])
 	}

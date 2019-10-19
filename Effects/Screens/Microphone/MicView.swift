@@ -43,32 +43,32 @@ final class MicView: BaseNodeView<MicVM> {
 	override func updateUI() {
 		guard let vm = self.viewModel else { return }
 
-		if vm.tracker.amplitude > 0.1 {
-			self.frequencyLabel.value.apply(.Regular14White, text: String(format: "%0.1f", vm.tracker.frequency))
-
-			var frequency = Float(vm.tracker.frequency)
-			while (frequency > Float(vm.noteFrequencies[vm.noteFrequencies.count-1])) {
-				frequency = frequency / 2.0
-			}
-			while (frequency < Float(vm.noteFrequencies[0])) {
-				frequency = frequency * 2.0
-			}
-
-			var minDistance: Float = 10000.0
-			var index = 0
-
-			for i in 0..<vm.noteFrequencies.count {
-				let distance = fabsf(Float(vm.noteFrequencies[i]) - frequency)
-				if (distance < minDistance){
-					index = i
-					minDistance = distance
-				}
-			}
-			let octave = Int(log2f(Float(vm.tracker.frequency) / frequency))
-			self.noteNameWithSharpsLabel.value.apply(.Regular14White, text: "\(vm.noteNamesWithSharps[index])\(octave)")
-			self.noteNameWithFlatsLabel.value.apply(.Regular14White, text: "\(vm.noteNamesWithFlats[index])\(octave)")
-		}
-		self.amplitudeLabel.value.apply(.Regular14White, text: String(format: "%0.2f", vm.tracker.amplitude))
+//		if vm.tracker.amplitude > 0.1 {
+//			self.frequencyLabel.value.apply(.Regular14White, text: String(format: "%0.1f", vm.tracker.frequency))
+//
+//			var frequency = Float(vm.tracker.frequency)
+//			while (frequency > Float(vm.noteFrequencies[vm.noteFrequencies.count-1])) {
+//				frequency = frequency / 2.0
+//			}
+//			while (frequency < Float(vm.noteFrequencies[0])) {
+//				frequency = frequency * 2.0
+//			}
+//
+//			var minDistance: Float = 10000.0
+//			var index = 0
+//
+//			for i in 0..<vm.noteFrequencies.count {
+//				let distance = fabsf(Float(vm.noteFrequencies[i]) - frequency)
+//				if (distance < minDistance){
+//					index = i
+//					minDistance = distance
+//				}
+//			}
+//			let octave = Int(log2f(Float(vm.tracker.frequency) / frequency))
+//			self.noteNameWithSharpsLabel.value.apply(.Regular14White, text: "\(vm.noteNamesWithSharps[index])\(octave)")
+//			self.noteNameWithFlatsLabel.value.apply(.Regular14White, text: "\(vm.noteNamesWithFlats[index])\(octave)")
+//		}
+//		self.amplitudeLabel.value.apply(.Regular14White, text: String(format: "%0.2f", vm.tracker.amplitude))
 	}
 
 }

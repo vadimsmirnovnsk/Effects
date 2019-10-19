@@ -47,8 +47,6 @@ class BaseNodeView<T: BaseNodeVM> : BaseView<T> {
 		self.enabledSwitch.switch.onSwitch = { [weak self] on in
 			self?.viewModel?.isEnabled = on
 		}
-
-		self.updateHidden(expanded: viewModel.isExpanded)
 	}
 
 	override func viewModelChanged() {
@@ -68,7 +66,10 @@ class BaseNodeView<T: BaseNodeVM> : BaseView<T> {
 		UIView.animate(withDuration: 0.3, animations: {
 			self.stack.arrangedSubviews.forEach { $0.alpha = expanded ? 1 : 0 }
 		})
-		self.stack.arrangedSubviews.forEach { $0.isHidden = !expanded }
+		self.stack.arrangedSubviews.forEach {
+			$0.isHidden = !expanded
+		}
+		print(self.stack.arrangedSubviews)
 	}
 
 }

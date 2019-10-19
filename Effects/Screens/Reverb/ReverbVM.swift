@@ -7,7 +7,8 @@ final class ReverbVM: BaseNodeVM {
 
 		super.init(title: "Reverb", input: input, output: self.reverb)
 
-		self.reverb.dryWetMix = 0.5
+		self.reverb.dryWetMix = 0.2
+		self.reverb.loadFactoryPreset(.mediumHall)
 
 		self.nodes = [self.reverb]
 	}

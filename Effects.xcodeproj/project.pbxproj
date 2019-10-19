@@ -44,6 +44,8 @@
 		30391AE6232001A600EE2D7C /* DelayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AE5232001A600EE2D7C /* DelayView.swift */; };
 		30391AE92320038400EE2D7C /* ReverbVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AE82320038400EE2D7C /* ReverbVM.swift */; };
 		30391AEB2320038B00EE2D7C /* ReverbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30391AEA2320038B00EE2D7C /* ReverbView.swift */; };
+		30C383C6235B1EC70004464B /* FlangerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C383C5235B1EC70004464B /* FlangerVM.swift */; };
+		30C383C8235B1ED20004464B /* FlangerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C383C7235B1ED20004464B /* FlangerView.swift */; };
 		85FD6BF61B9F9A0F7F948407 /* libPods-Effects.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2AD7E0A286F3A03029793A /* libPods-Effects.a */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +90,8 @@
 		30391AE5232001A600EE2D7C /* DelayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelayView.swift; sourceTree = "<group>"; };
 		30391AE82320038400EE2D7C /* ReverbVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverbVM.swift; sourceTree = "<group>"; };
 		30391AEA2320038B00EE2D7C /* ReverbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverbView.swift; sourceTree = "<group>"; };
+		30C383C5235B1EC70004464B /* FlangerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlangerVM.swift; sourceTree = "<group>"; };
+		30C383C7235B1ED20004464B /* FlangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlangerView.swift; sourceTree = "<group>"; };
 		4CCD00A6ADB7AA74C8AAAFBF /* Pods-Effects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.debug.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2AD7E0A286F3A03029793A /* libPods-Effects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49327F6B547B487CD11091 /* Pods-Effects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.release.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.release.xcconfig"; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 		3031493F2312A2FB000BD412 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				30C383C4235B1EB90004464B /* Flanger */,
 				30391AE72320037800EE2D7C /* Reverb */,
 				30391AE22320019300EE2D7C /* Delay */,
 				30391AD9231FF5EA00EE2D7C /* Dynamic Processor */,
@@ -281,6 +286,15 @@
 			path = Reverb;
 			sourceTree = "<group>";
 		};
+		30C383C4235B1EB90004464B /* Flanger */ = {
+			isa = PBXGroup;
+			children = (
+				30C383C5235B1EC70004464B /* FlangerVM.swift */,
+				30C383C7235B1ED20004464B /* FlangerView.swift */,
+			);
+			path = Flanger;
+			sourceTree = "<group>";
+		};
 		AF13036A6D5989CFB8FFFFB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +424,7 @@
 				303149562312C271000BD412 /* InputDeviceTableViewController.swift in Sources */,
 				3031495A2312C564000BD412 /* NavigationBarStyle+Custom.swift in Sources */,
 				303149532312C01A000BD412 /* UIColor+Custom.swift in Sources */,
+				30C383C6235B1EC70004464B /* FlangerVM.swift in Sources */,
 				3031495F231428C1000BD412 /* OutputView.swift in Sources */,
 				30391ACF2318268100EE2D7C /* EffectSlider.swift in Sources */,
 				303149662314318D000BD412 /* BaseNodeVM.swift in Sources */,
@@ -428,6 +443,7 @@
 				30391AE1231FF95D00EE2D7C /* BlockSwitch.swift in Sources */,
 				303149582312C3ED000BD412 /* TitledLabel.swift in Sources */,
 				3031496323142C1E000BD412 /* UINavigationController.swift in Sources */,
+				30C383C8235B1ED20004464B /* FlangerView.swift in Sources */,
 				3031492B2312A0A5000BD412 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
