@@ -1,0 +1,152 @@
+fastlane_version "2.68.2"
+
+default_platform :ios
+
+platform :ios do
+
+  product_bundle_identifier = CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier)
+  distribute_group_name = ENV["DISTRIBUTE_GROUP_NAME"]
+  project_name = ENV["PROJECT_NAME"]
+
+  desc "Push a new beta build to TestFlight"
+  lane :common_beta do |options|
+
+    skip_processing = false #UI.select("Skip waiting for build upload to TestFlight?: ", [true, false])
+    provisioning_profile = "AppStore_#{product_bundle_identifier}"
+    username = options[:username]
+    # cocoapods
+    get_certificates(output_path: "./build", username: username)
+    profile_uuid = get_provisioning_profile(output_path: "./build", username: username)
+    team_id = CredentialsManager::AppfileConfig.try_fetch_value(:team_id)
+    build_app(
+      workspace: "#{project_name}.xcworkspace", 
+      export_xcargs: "PROVISIONING_PROFILE_SPECIFIER='#{provisioning_profile}' DEVELOPMENT_TEAM='#{team_id}' CODE_SIGN_STYLE='Manual'",
+      scheme: project_name,
+      output_directory: "./build",
+      include_bitcode: false,
+      skip_profile_detection: false,
+        export_options: {
+          method: "app-store",
+          signingStyle: "manual",
+          provisioningProfiles: {
+            "#{product_bundle_identifier}": profile_uuid,
+            # "#{share_extension_bundle_identifier}": "#AppStore_{share_extension_bundle_identifier}",
+          }
+      },
+    )
+
+    last_commit = File.read('last_commit')
+    changelog = changelog_from_git_commits(
+      quiet: true,
+      between: [last_commit, "HEAD"],  # Optional, lets you specify a revision/tag range between which to collect commit info
+      pretty: "– %s",# Optional, lets you provide a custom format to apply to each commit when generating the changelog text
+      date_format: "short",# Optional, lets you provide an additional date format to dates within the pretty-formatted string
+      match_lightweight_tag: false,  # Optional, lets you ignore lightweight (non-annotated) tags when searching for the last tag
+      merge_commit_filtering: "exclude_merges" # Optional, lets you filter out merge commits
+    )
+    puts changelog
+    version = get_version_number(target: project_name) + " (" + get_build_number() + ")"
+    increment_and_push()
+    ENV["FL_CHANGELOG"] = nil
+    upload_to_testflight(
+      skip_waiting_for_build_processing: skip_processing, 
+      username: username,
+      distribute_external: true,
+      changelog: "",
+      groups: ["#{distribute_group_name}"]
+    )
+    # changelog: changelog
+    notify_changes(changelog: changelog, version: version)
+  end
+
+  lane :notify_changes do |options|
+    changelog = options[:changelog]
+    if changelog
+      version = options[:version] ? options[:version] : get_version_number(target: project_name) + " (" + get_build_number() + ")"
+      # Сохраним текущий комит
+      File.write('last_commit', last_git_commit[:commit_hash])
+      commit_version_bump(
+        message: "Freeze changelog", 
+        force: true, 
+        include: ["fastlane/last_commit"],
+        xcodeproj: "#{project_name}.xcodeproj"
+      )
+      push_to_git_remote
+      slack(
+        message: "App successfully uploaded to TestFlight.",
+        success: true,
+        default_payloads: [],
+        attachment_properties: {
+          fields: [ 
+            {
+              title: "Build number",
+              value: version,
+            },
+            {
+              title: "Changelog",
+              value: changelog,
+            },
+          ]
+        }
+      )
+    end
+  end
+
+  lane :increment_and_push do |options|
+    increment_build_number
+    bump_type = options[:bump_type]
+    if bump_type
+      increment_version_number(
+        bump_type: bump_type
+      )
+    end
+    commit_version_bump(
+      message: "Bump up version", 
+      force: true, 
+      include: ["fastlane/last_commit", "#{project_name}/Supporting Files/Info.plist"],
+      xcodeproj: "#{project_name}.xcodeproj"
+    )
+    push_to_git_remote
+  end
+
+  lane :add_group_to_tf_build do |options|
+    fastlane_require 'spaceship'
+
+    spaceship = Spaceship::Tunes.login(options[:username])
+    spaceship.team_id = fastlane_itc_team_id
+    app = Spaceship::Tunes::Application.find(product_bundle_identifier)
+    build = Spaceship::TestFlight::Build.latest(app_id: app.apple_id, platform: 'ios')
+    group = Spaceship::TestFlight::Group.find(app_id: app.apple_id, group_name: distribute_group_name)
+    build.add_group!(group)
+    # Find team id
+    # teamInfo = spaceship.teams.select { |team| team['contentProvider']['name'].strip.downcase == team_name.strip.downcase }.first
+    # team_id = teamInfo['contentProvider']['contentProviderId'] if teamInfo
+  end
+
+  # Получить полный список всех team_id & itc_team_id нужные для Appfile
+  lane :getTeamNames do
+    require "spaceship" 
+    puts "Пиши пароль от акка в CommonFastfile в строчку $$$$$$$$$ (130)"
+    applePassword = "$$$$$$$$$"
+    
+    apple_id = CredentialsManager::AppfileConfig.try_fetch_value(:apple_id)
+    clientTunes = Spaceship::Tunes.login(apple_id, applePassword)
+    client = Spaceship::Portal.login(apple_id, applePassword)
+
+    strClientTunes = "" 
+    clientTunes.teams.each do |team|
+        UI.message "#{team['contentProvider']['name']} (#{team['contentProvider']['contentProviderId']})"
+        strClientTunes << "#{team['contentProvider']['name']} (#{team['contentProvider']['contentProviderId']})||"
+    end 
+    puts "ItunesTeamNames: #{strClientTunes[0..-3]}"
+
+    strDevPortal = "" 
+    client.teams.each do |team|
+        UI.message "#{team['name']} (#{team['teamId']})"
+        strDevPortal << "#{team['name']} (#{team['teamId']})||"
+    end
+    puts "DevTeamNames: #{strDevPortal[0..-3]}"
+  end
+
+end
+

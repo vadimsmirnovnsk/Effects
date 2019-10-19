@@ -1,0 +1,13 @@
+app_identifier "com.voca.effects" # The bundle identifier of your app
+apple_id "badimm.235@gmail.com" # Your Apple email address
+# You can run getTeamNames from CommonFastfile to get it
+team_name "VOCA LIMITED"
+team_id "MFZKB5DVP5" # Developer Portal Team ID
+itc_team_id "119013628" # AppsetoreConnect Portal Team ID
+
+# https://my.slack.com/services/new/incoming-webhook/
+# https://hooks.slack.com/services/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 #Gravity
+ENV["SLACK_URL"] = "https://hooks.slack.com/services/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" 
+ENV["PROJECT_NAME"] = "Effects"
+ENV["DISTRIBUTE_GROUP_NAME"] = "Effects"
+ENV["FASTLANE_SKIP_DOCS"] = "1"
