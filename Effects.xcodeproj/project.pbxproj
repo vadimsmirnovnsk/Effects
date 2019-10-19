@@ -54,7 +54,6 @@
 		3031492A2312A0A5000BD412 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		303149312312A0A7000BD412 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		303149342312A0A7000BD412 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		303149362312A0A7000BD412 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3031493D2312A23E000BD412 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		303149412312A309000BD412 /* RootVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVM.swift; sourceTree = "<group>"; };
 		303149432312A30E000BD412 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
@@ -92,6 +91,7 @@
 		30391AEA2320038B00EE2D7C /* ReverbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverbView.swift; sourceTree = "<group>"; };
 		30C383C5235B1EC70004464B /* FlangerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlangerVM.swift; sourceTree = "<group>"; };
 		30C383C7235B1ED20004464B /* FlangerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlangerView.swift; sourceTree = "<group>"; };
+		30FC8270235B372C003F99FA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CCD00A6ADB7AA74C8AAAFBF /* Pods-Effects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.debug.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.debug.xcconfig"; sourceTree = "<group>"; };
 		CC2AD7E0A286F3A03029793A /* libPods-Effects.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Effects.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA49327F6B547B487CD11091 /* Pods-Effects.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Effects.release.xcconfig"; path = "Target Support Files/Pods-Effects/Pods-Effects.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,9 +135,9 @@
 				3031494B2312BEB7000BD412 /* Utils */,
 				3031492A2312A0A5000BD412 /* AppDelegate.swift */,
 				303149452312A388000BD412 /* Bridging-Header.h */,
+				30FC826F235B372C003F99FA /* Supporting Files */,
 				303149312312A0A7000BD412 /* Assets.xcassets */,
 				303149332312A0A7000BD412 /* LaunchScreen.storyboard */,
-				303149362312A0A7000BD412 /* Info.plist */,
 			);
 			path = Effects;
 			sourceTree = "<group>";
@@ -293,6 +293,14 @@
 				30C383C7235B1ED20004464B /* FlangerView.swift */,
 			);
 			path = Flanger;
+			sourceTree = "<group>";
+		};
+		30FC826F235B372C003F99FA /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				30FC8270235B372C003F99FA /* Info.plist */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		AF13036A6D5989CFB8FFFFB8 /* Frameworks */ = {
@@ -585,9 +593,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = MFZKB5DVP5;
-				INFOPLIST_FILE = Effects/Info.plist;
+				INFOPLIST_FILE = "Effects/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -609,9 +617,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = MFZKB5DVP5;
-				INFOPLIST_FILE = Effects/Info.plist;
+				INFOPLIST_FILE = "Effects/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
