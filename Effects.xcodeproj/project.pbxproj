@@ -584,13 +584,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8MPYLY9HF3;
+				DEVELOPMENT_TEAM = MFZKB5DVP5;
 				INFOPLIST_FILE = Effects/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = STHS.Effects;
+				PRODUCT_BUNDLE_IDENTIFIER = com.voca.effects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Effects/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -604,13 +604,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 8MPYLY9HF3;
+				DEVELOPMENT_TEAM = MFZKB5DVP5;
 				INFOPLIST_FILE = Effects/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = STHS.Effects;
+				PRODUCT_BUNDLE_IDENTIFIER = com.voca.effects;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Effects/Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

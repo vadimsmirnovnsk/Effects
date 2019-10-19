@@ -37,6 +37,7 @@ final class RootVM: BaseViewControllerVM {
 			self.compressor,
 //			self.dynamicsProcessor,
 			self.delayVM,
+			self.flangerVM,
 			self.reverbVM,
 		]
 	}
